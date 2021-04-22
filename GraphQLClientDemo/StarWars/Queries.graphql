@@ -1,0 +1,18 @@
+query getHero($episode: Episode!) {
+  hero(episode: $episode) {
+    ...SomeDroid
+    ...SomeHuman
+  }
+}
+
+fragment SomeHuman on Human {
+  ...HasName
+  homePlanet
+}
+fragment SomeDroid on Droid {
+  ...HasName
+  primaryFunction
+}
+fragment HasName on Character {
+  name
+}
